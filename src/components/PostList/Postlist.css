@@ -1,0 +1,26 @@
+body {
+  background-color: rgba(242, 242, 242);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+}
+.main {
+  padding: 30px;
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .post-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .post-list {
+    grid-template-columns: 1fr;
+  }
+}
