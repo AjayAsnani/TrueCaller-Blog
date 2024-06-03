@@ -91,8 +91,8 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-top">
         <div className="column">
-          <img src="../../../public/play.avif" alt="Play Store" />
-          <img src="../../../public/app.avif" alt="App Store" />
+          <img src="/play.avif" alt="Play Store" />
+          <img src="/app.avif" alt="App Store" />
         </div>{" "}
         {links.map((linkGroup, index) => (
           <div className="column" key={index}>

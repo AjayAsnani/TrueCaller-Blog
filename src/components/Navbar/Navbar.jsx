@@ -33,9 +33,9 @@ const Navbar = () => {
       </div>
       <div className="right">
         {scrolled ? (
-          <img src="../../../public/logo.png" alt="Logo" className="logo1" />
+          <img src="/logo.png" alt="Logo" className="logo1" />
         ) : (
-          <img src="../../../public/logo2.png" alt="Logo" className="logo" />
+          <img src="/logo2.png" alt="Logo" className="logo" />
         )}
         <ul className={`nav-links ${showLinks ? "show" : ""}`}>
           <li>
