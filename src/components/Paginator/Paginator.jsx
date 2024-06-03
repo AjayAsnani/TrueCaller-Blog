@@ -1,4 +1,3 @@
-// src/components/Paginator.js
 import React from "react";
 import "./Paginator.css";
 

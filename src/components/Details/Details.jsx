@@ -9,9 +9,18 @@ const Details = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
 
+  const sanitizeHTML = (html) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const iframes = doc.querySelectorAll("iframe");
+    iframes.forEach((iframe) => iframe.remove());
+    return doc.body.innerHTML;
+  };
+
   useEffect(() => {
     fetchPostBySlug(slug).then((response) => {
-      setPost(response.data);
+      const sanitizedContent = sanitizeHTML(response.data.content);
+      setPost({ ...response.data, content: sanitizedContent });
     });
   }, [slug]);
 

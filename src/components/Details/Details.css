@@ -44,7 +44,7 @@
   margin: 0;
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .post-detail img {
     height: 300px;
   }
@@ -61,6 +61,12 @@
     width: 100%;
     padding: 10px;
   }
+  .info img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
 }
 
 @media (min-width: 380px) and (max-width: 600px) {
@@ -71,12 +77,20 @@
 
   .post-detail h1 {
     font-size: 1.5rem;
+    padding: 0 10px;
   }
 
   .post-detail p {
     font-size: 0.8rem;
   }
+
+  .info img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
   .post-detail div {
-    padding: 10px;
+    padding: 0 10px;
   }
 }

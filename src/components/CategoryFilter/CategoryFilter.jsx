@@ -1,4 +1,3 @@
-// src/components/CategoryFilter.js
 import React, { useEffect, useState } from "react";
 import { fetchCategories } from "../../api";
 import "./CategoryFilter.css";
