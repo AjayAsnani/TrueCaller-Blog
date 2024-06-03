@@ -69,14 +69,14 @@
   }
 }
 
-@media (min-width: 360px) and (max-width: 600px) {
+@media (min-width: 370px) and (max-width: 600px) {
   .post-detail img {
     height: 200px;
     width: 100%;
   }
 
   .post-detail h1 {
-    font-size: 16px;
+    font-size: 24px;
     padding: 0 10px;
   }
 
