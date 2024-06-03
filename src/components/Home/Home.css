@@ -43,7 +43,7 @@
 
 @media (max-width: 768px) {
   .home::before {
-    background-image: url("../../../public/main2.avif");
+    background-image: url("/main2.avif");
     height: 600px;
   }
   .home {
