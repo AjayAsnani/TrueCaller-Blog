@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Navbar.css";
-import { FaSearch, FaBars } from "react-icons/fa";
-
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [showLinks, setShowLinks] = useState(false);
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -22,52 +18,27 @@ const Navbar = () => {
     };
   }, []);
 
-  const toggleLinks = () => {
-    setShowLinks(!showLinks);
-  };
-
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="hamburger" onClick={toggleLinks}>
-        <FaBars />
-      </div>
-      <div className="right">
+    <nav
+      className={`fixed w-full z-[1000] transition-all duration-300 ease-in-out p-[10px] ${
+        scrolled ? "bg-white text-black" : "text-white"
+      } md:p-[10px_20px]`}
+    >
+      <div className="flex items-center">
         {scrolled ? (
-          <img src="/logo.png" alt="Logo" className="logo1" />
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="h-[30px] w-auto md:mr-[10px]"
+          />
         ) : (
-          <img src="/logo2.png" alt="Logo" className="logo" />
+          <img
+            src="/logo2.png"
+            alt="Logo"
+            className="h-[20px] w-auto md:mr-[10px]"
+          />
         )}
-        <ul className={`nav-links ${showLinks ? "show" : ""}`}>
-          <li>
-            <a href="#link1">Features</a>
-          </li>
-          <li>
-            <a href="#link2">Insights</a>
-          </li>
-          <li>
-            <a href="#link3">News</a>
-          </li>
-          <li>
-            <a href="#link4">Scam Alert</a>
-          </li>
-          <li>
-            <a href="#link5">Life at TrueCaller</a>
-          </li>
-          <li>
-            <a href="#link6">Diversity & Inclusion</a>
-          </li>
-          <li>
-            <a href="#link7">Impact</a>
-          </li>
-        </ul>
-      </div>
-      <div className="nav-right">
-        <select className="language-dropdown">
-          <option value="en">English</option>
-          <option value="es">Spanish</option>
-          <option value="fr">French</option>
-        </select>
-        <FaSearch className="search-icon" />
+        <div className="flex-grow"></div>
       </div>
     </nav>
   );

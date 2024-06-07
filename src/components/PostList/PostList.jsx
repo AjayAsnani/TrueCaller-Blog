@@ -3,7 +3,6 @@ import { fetchPosts } from "../../api";
 import PostCard from "../PostCard/PostCard";
 import CategoryFilter from "../CategoryFilter/CategoryFilter";
 import Paginator from "../Paginator/Paginator";
-import "./Postlist.css";
 import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import Footer from "../Footer/Footer";
@@ -21,15 +20,15 @@ const PostList = () => {
   }, [selectedCategory, page]);
 
   return (
-    <div>
+    <div className="bg-gray-200 font-sans">
       <Navbar />
       <Home />
-      <div className="main">
+      <div className="p-8">
         <CategoryFilter
           categories={categories}
           setSelectedCategory={setSelectedCategory}
         />
-        <div className="post-list">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
           {posts.map((post) => (
             <PostCard key={post.slug} post={post} category={selectedCategory} />
           ))}

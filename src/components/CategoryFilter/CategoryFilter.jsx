@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { fetchCategories } from "../../api";
-import "./CategoryFilter.css";
 
 const CategoryFilter = ({ setSelectedCategory }) => {
   const [categories, setCategories] = useState([]);
@@ -13,8 +12,11 @@ const CategoryFilter = ({ setSelectedCategory }) => {
 
   return (
     <div>
-      <h1>Latest Articles</h1>
-      <select onChange={(e) => setSelectedCategory(e.target.value)}>
+      <h1 className="text-2xl font-bold mb-4">Latest Articles</h1>
+      <select
+        onChange={(e) => setSelectedCategory(e.target.value)}
+        className="rounded-[20%] border-none p-[18px] outline-none mb-[20px]"
+      >
         <option value="">All Categories</option>
         {categories.map((category) => (
           <option key={category.slug} value={category.slug}>
