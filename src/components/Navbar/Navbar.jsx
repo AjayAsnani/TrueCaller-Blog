@@ -22,7 +22,7 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-[1000] transition-all duration-300 ease-in-out p-[10px] ${
         scrolled ? "bg-white text-black" : "text-white"
-      } md:p-[10px_20px]`}
+      } md:p-[22px]`}
     >
       <div className="flex items-center">
         {scrolled ? (
