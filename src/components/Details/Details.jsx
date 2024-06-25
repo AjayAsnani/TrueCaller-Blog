@@ -4,7 +4,7 @@ import { fetchPostBySlug } from "../../api";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Loader from "../Loader/Loader";
-import he from "he"; 
+import he from "he";
 
 const Details = () => {
   const { slug } = useParams();
@@ -32,7 +32,7 @@ const Details = () => {
         <img
           src={post.featured_image}
           alt={post.title}
-          className="w-full h-[70vh] object-cover mb-3"
+          className="w-full lg:h-[70vh]  object-contain lg:object-cover mb-3"
         />
         <div className="max-w-[800px] w-full mx-5 p-3">
           <h1 className="text-xl md:text-4xl mb-2">{he.decode(post.title)}</h1>
