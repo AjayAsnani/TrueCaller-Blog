@@ -19,45 +19,28 @@ const PostCard = ({ post, category }) => {
   const capitalize = (text) => {
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
+
   const getCategoryDotColor = (category) => {
-    switch (category.toLowerCase()) {
-      case "scam-alert":
-        return "red";
-      case "app-features":
-        return "green";
-      case "insights":
-        return "blue";
-      case "news":
-        return "#00A5B9";
-      case "behind-the-code":
-        return "yellow";
-      case "business-hacks":
-        return "darkblue";
-      case "diversity-and-inclusion":
-        return "darkgreen";
-      case "how-to-tutorials":
-        return "orange";
-      case "notices":
-        return "yellow";
-      case "partnerships":
-        return "purple";
-      case "premium":
-        return "gold";
-      case "random":
-        return "gray";
-      case "tech":
-        return "teal";
-      case "truecaller-insights":
-        return "#FF4500";
-      case "true-stories":
-        return "brown";
-      case "truecrew-brand-ambassadors":
-        return "darkcyan";
-      case "women-at-truecaller":
-        return "pink";
-      default:
-        return "";
-    }
+    const colors = {
+      "scam-alert": "red",
+      "app-features": "green",
+      insights: "blue",
+      news: "#00A5B9",
+      "behind-the-code": "yellow",
+      "business-hacks": "darkblue",
+      "diversity-and-inclusion": "darkgreen",
+      "how-to-tutorials": "orange",
+      notices: "yellow",
+      partnerships: "purple",
+      premium: "gold",
+      random: "gray",
+      tech: "teal",
+      "truecaller-insights": "#FF4500",
+      "true-stories": "brown",
+      "truecrew-brand-ambassadors": "darkcyan",
+      "women-at-truecaller": "pink",
+    };
+    return colors[category.toLowerCase()] || "";
   };
 
   return (

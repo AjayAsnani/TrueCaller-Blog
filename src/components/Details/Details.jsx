@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchPostBySlug } from "../../api";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPostBySlug } from "../../slices/postDetailSlice";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Loader from "../Loader/Loader";
@@ -8,22 +9,14 @@ import he from "he";
 
 const Details = () => {
   const { slug } = useParams();
-  const [post, setPost] = useState(null);
-
-  const sanitizeHTML = (html) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-    return doc.body.innerHTML;
-  };
+  const dispatch = useDispatch();
+  const { post, status } = useSelector((state) => state.postDetail);
 
   useEffect(() => {
-    fetchPostBySlug(slug).then((response) => {
-      const sanitizedContent = sanitizeHTML(response.data.content);
-      setPost({ ...response.data, content: sanitizedContent });
-    });
-  }, [slug]);
+    dispatch(fetchPostBySlug(slug));
+  }, [dispatch, slug]);
 
-  if (!post) return <Loader />;
+  if (status === "loading" || !post) return <Loader />;
 
   return (
     <div>
@@ -32,7 +25,7 @@ const Details = () => {
         <img
           src={post.featured_image}
           alt={post.title}
-          className="w-full lg:h-[70vh]  object-contain lg:object-cover mb-3"
+          className="w-full lg:h-[70vh] object-contain lg:object-cover mb-3"
         />
         <div className="max-w-[800px] w-full mx-5 p-3">
           <h1 className="text-xl md:text-4xl mb-2">{he.decode(post.title)}</h1>

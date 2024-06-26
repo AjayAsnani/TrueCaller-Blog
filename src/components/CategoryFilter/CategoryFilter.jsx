@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { fetchCategories } from "../../api";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories } from "../../slices/categoriesSlice";
 
 const CategoryFilter = ({ setSelectedCategory }) => {
-  const [categories, setCategories] = useState([]);
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories.items);
 
   useEffect(() => {
-    fetchCategories().then((response) => {
-      setCategories(response.data.categories);
-    });
-  }, []);
+    dispatch(fetchCategories());
+  }, [dispatch]);
 
   return (
     <div>
